@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "rick-and-morty-wiki",
+    "slug": "rick-and-morty-wiki",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "rick-and-morty-wiki"
+}
