@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import styled from "styled-components/native";
 import Card from "../components/Card";
 import data from "../data";
@@ -13,6 +13,13 @@ const Container = styled.View`
   padding: 50px 0 0 20px;
 `;
 
+const Title = styled.Text`
+  font-weight: 600;
+  font-size: 32px;
+  text-align: right;
+  margin-right: 10px;
+`;
+
 const Menu = styled.View`
   height: 900px;
   width: 60px;
@@ -20,15 +27,21 @@ const Menu = styled.View`
 `;
 
 function Home() {
+  const renderItem = ({ item, index }) => {
+    return index == 0 ? <Title>Biography in detail</Title> : <Card {...item} />;
+  };
+
   return (
     <Container>
       {/* TODO: remove that menu */}
       <Menu />
-      <FlatList
-        data={data}
-        keyExtractor={({ id }) => id}
-        renderItem={({ item }) => <Card {...item} />}
-      />
+      <View>
+        <FlatList
+          data={data}
+          keyExtractor={({ id }) => id}
+          renderItem={renderItem}
+        />
+      </View>
     </Container>
   );
 }
