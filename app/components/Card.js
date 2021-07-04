@@ -11,7 +11,7 @@ const Image = styled.Image`
   height: 180px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 10px 20px 10px;
-  margin: 40px 0 20px 0;
+  margin: 20px 0 20px 0;
 `;
 
 const Title = styled.Text`
