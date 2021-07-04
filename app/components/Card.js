@@ -7,11 +7,10 @@ const Container = styled.View`
 `;
 
 const Image = styled.Image`
-  width: 300px;
-  height: 180px;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.24) 10px 20px 10px;
   margin: 20px 0 20px 0;
+  width: 100%;
+  height: 100%;
 `;
 
 const Title = styled.Text`
@@ -20,17 +19,33 @@ const Title = styled.Text`
 `;
 
 const SubTitle = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
 `;
 
-function Card({ uri, name, resume, location }) {
+const ImageContainer = styled.View`
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 300px;
+  height: ${(props) => (props.isDetail ? "280px" : "180px")};
+`;
+
+const Content = styled.View`
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+`;
+
+function Card({ uri, name, resume, location, isDetail }) {
   return (
     <Container>
-      <Image source={{ uri }} />
-      <Title>{name}</Title>
-      <SubTitle>{resume}</SubTitle>
-      <SubTitle>{location}</SubTitle>
+      <ImageContainer isDetail={isDetail}>
+        <Image source={{ uri }} />
+      </ImageContainer>
+      <Content>
+        <Title>{name}</Title>
+        <SubTitle>{resume}</SubTitle>
+        <SubTitle>{location}</SubTitle>
+      </Content>
     </Container>
   );
 }
